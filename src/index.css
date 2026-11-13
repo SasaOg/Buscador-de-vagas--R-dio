@@ -1,0 +1,113 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Fredoka", sans-serif;
+  --font-body: "Nunito", sans-serif;
+  --color-kawaii-pink: #FF6FA5;
+  --color-kawaii-pink-light: #FFD6E7;
+  --color-kawaii-yellow: #FFE9A8;
+  --color-kawaii-blue: #9ED8FF;
+  --color-kawaii-green: #C8EC8A;
+  --color-kawaii-cherry: #F2394F;
+  --color-kawaii-cream: #FFF7E8;
+  --color-kawaii-plum: #4A2B3F;
+  --color-kawaii-plum-muted: #745167;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-kawaii-plum);
+  background-color: var(--color-kawaii-cream);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dark body {
+  background-color: #231622;
+  color: #FFF0F5;
+}
+
+/* Kawaii Sticker Shadow & Border */
+.kawaii-box {
+  border: 3px solid #4A2B3F;
+  box-shadow: 4px 4px 0px #4A2B3F;
+  border-radius: 24px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .kawaii-box {
+  border: 3px solid #FFA6C9;
+  box-shadow: 4px 4px 0px #FFA6C9;
+}
+
+.kawaii-button {
+  border: 3px solid #4A2B3F;
+  box-shadow: 3px 3px 0px #4A2B3F;
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .kawaii-button {
+  border: 3px solid #FFA6C9;
+  box-shadow: 3px 3px 0px #FFA6C9;
+}
+
+.kawaii-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #4A2B3F;
+}
+
+.dark .kawaii-button:hover {
+  box-shadow: 5px 5px 0px #FFA6C9;
+}
+
+.kawaii-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #4A2B3F;
+}
+
+.dark .kawaii-button:active {
+  box-shadow: 1px 1px 0px #FFA6C9;
+}
+
+/* Polka Dot Pattern */
+.bg-poa {
+  background-image: radial-gradient(#FF6FA5 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  background-position: 0 0;
+}
+
+.dark .bg-poa {
+  background-image: radial-gradient(rgba(255, 166, 201, 0.15) 1.2px, transparent 1.2px);
+}
+
+/* Floating animation for Mascot & Hearts */
+@keyframes kawaii-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes kawaii-float-heart {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-kawaii-bounce {
+  animation: kawaii-bounce 2.6s ease-in-out infinite;
+}
+
+.animate-kawaii-heart {
+  animation: kawaii-float-heart 1s ease-out forwards;
+}
+
